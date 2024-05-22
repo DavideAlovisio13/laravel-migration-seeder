@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->string('train_code', 255)->nullable()->change();
+            $table->string('on_time', 50)->change();
+            $table->string('cancelled', 50)->change();
         });
     }
 
@@ -26,7 +27,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->dropColumn('train_code')->nullable()->change();
+            $table->dropColumn('on_time')->change();
+            $table->dropColumn('cancelled')->change();
         });
     }
 };
